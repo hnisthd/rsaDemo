@@ -1,9 +1,9 @@
 package com.hd.rsa.rsademo.controller;
 
 import com.google.gson.Gson;
-import com.hd.rsa.rsademo.demmo.Base64;
-import com.hd.rsa.rsademo.demmo.RSAEncrypt;
-import com.hd.rsa.rsademo.demmo.RSASignature;
+import com.hd.rsa.rsademo.util.Base64;
+import com.hd.rsa.rsademo.util.RSAEncrypt;
+import com.hd.rsa.rsademo.util.RSASignature;
 import com.hd.rsa.rsademo.model.UserInfo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
