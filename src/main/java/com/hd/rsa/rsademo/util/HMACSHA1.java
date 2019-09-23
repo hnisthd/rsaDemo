@@ -1,7 +1,6 @@
-package com.hd.rsa.rsademo;
+package com.hd.rsa.rsademo.util;
 
-import com.google.common.base.Strings;
-import org.apache.tomcat.jni.FileInfo;
+import org.apache.commons.lang3.StringUtils;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -107,7 +106,7 @@ public class HMACSHA1 {
      * @return 字符串
      */
     public static String encryptHMAC(String data, String key) {
-        if (Strings.isNullOrEmpty(data)) {
+        if (StringUtils.isBlank(data)) {
             return null;
         }
         byte[] bytes = encryptHMAC(data.getBytes(), key);

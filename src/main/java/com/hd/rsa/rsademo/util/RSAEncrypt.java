@@ -42,6 +42,8 @@ public class RSAEncrypt {
      */
     private static final int MAX_DECRYPT_BLOCK = 128;
 
+    private static final String ALGORITHM = "RSA";
+
     /**
      * 随机生成密钥对
      */
@@ -49,7 +51,7 @@ public class RSAEncrypt {
         // KeyPairGenerator类用于生成公钥和私钥对，基于RSA算法生成对象
         KeyPairGenerator keyPairGen = null;
         try {
-            keyPairGen = KeyPairGenerator.getInstance("RSA");
+            keyPairGen = KeyPairGenerator.getInstance(ALGORITHM);
         } catch (NoSuchAlgorithmException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -123,7 +125,7 @@ public class RSAEncrypt {
             throws Exception {
         try {
             byte[] buffer = Base64.decode(publicKeyStr);
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
             X509EncodedKeySpec keySpec = new X509EncodedKeySpec(buffer);
             return (RSAPublicKey) keyFactory.generatePublic(keySpec);
         } catch (NoSuchAlgorithmException e) {
@@ -166,7 +168,7 @@ public class RSAEncrypt {
         try {
             byte[] buffer = Base64.decode(privateKeyStr);
             PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(buffer);
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance(ALGORITHM);
             return (RSAPrivateKey) keyFactory.generatePrivate(keySpec);
         } catch (NoSuchAlgorithmException e) {
             throw new Exception("无此算法");
@@ -195,9 +197,7 @@ public class RSAEncrypt {
         }
         Cipher cipher = null;
         try {
-            // 使用默认RSA
-            cipher = Cipher.getInstance("RSA");
-            // cipher= Cipher.getInstance("RSA", new BouncyCastleProvider());
+            cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
             int inputLen = plainTextData.length;
             ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -251,7 +251,7 @@ public class RSAEncrypt {
         Cipher cipher = null;
         try {
             // 使用默认RSA
-            cipher = Cipher.getInstance("RSA");
+            cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.ENCRYPT_MODE, privateKey);
             int inputLen = plainTextData.length;
             ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -305,8 +305,7 @@ public class RSAEncrypt {
         Cipher cipher = null;
         try {
             // 使用默认RSA
-            cipher = Cipher.getInstance("RSA");
-            // cipher= Cipher.getInstance("RSA", new BouncyCastleProvider());
+            cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE, privateKey);
             int inputLen = cipherData.length;
             ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -360,8 +359,7 @@ public class RSAEncrypt {
         Cipher cipher = null;
         try {
             // 使用默认RSA
-            cipher = Cipher.getInstance("RSA");
-            // cipher= Cipher.getInstance("RSA", new BouncyCastleProvider());
+            cipher = Cipher.getInstance(ALGORITHM);
             cipher.init(Cipher.DECRYPT_MODE, publicKey);
             int inputLen = cipherData.length;
             ByteArrayOutputStream out = new ByteArrayOutputStream();
