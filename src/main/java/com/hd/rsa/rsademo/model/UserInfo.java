@@ -1,11 +1,16 @@
 package com.hd.rsa.rsademo.model;
 
+import java.io.Serializable;
+
 /**
  * @author HD
  * @description
  * @date 2019/9/22 23:33
  */
-public class UserInfo {
+public class UserInfo implements Serializable {
+
+    private static final long serialVersionUID = 3739254730223826957L;
+
     private String userId;
 
     private String userName;
