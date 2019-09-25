@@ -25,7 +25,7 @@ public class HMACSHA1 {
      */
     //private final static String KEY_MAC = "HmacMD5";
     //private final static String KEY_MAC = "HmacSHA1";
-    private final static String KEY_MAC = "HmacSHA224";
+    private final static String KEY_MAC = "HmacSHA512";
 
     /**
      * 全局数组
@@ -188,7 +188,7 @@ public class HMACSHA1 {
         System.out.println(encryptHMAC(word, key));
 
 
-        System.out.println(fileEncryptHMAC("D:\\test\\ideaIU-2018.2.5.exe",key));
+        System.out.println(fileEncryptHMAC("F:\\Spring Data JPA从入门到精通@www.java1234.com.pdf",key));
 
     }
 }

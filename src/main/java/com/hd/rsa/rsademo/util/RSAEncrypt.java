@@ -57,7 +57,7 @@ public class RSAEncrypt {
             e.printStackTrace();
         }
         // 初始化密钥对生成器，密钥大小为96-1024位
-        keyPairGen.initialize(1024,new SecureRandom());
+        keyPairGen.initialize(1024);
         // 生成一个密钥对，保存在keyPair中
         KeyPair keyPair = keyPairGen.generateKeyPair();
         // 得到私钥
@@ -90,7 +90,6 @@ public class RSAEncrypt {
     /**
      * 从文件中输入流中加载公钥
      *
-     * @param in
      *            公钥输入流
      * @throws Exception
      *             加载公钥时产生的异常
@@ -140,7 +139,6 @@ public class RSAEncrypt {
     /**
      * 从文件中加载私钥
      *
-     * @param keyFileName
      *            私钥文件名
      * @return 是否成功
      * @throws Exception
